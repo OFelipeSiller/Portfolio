@@ -1,0 +1,402 @@
+/* Configurações Globais e Paleta de Cores*/
+:root {
+    /* Aqui estou definindo variáveis de cores e fontes para usar no projeto inteiro */
+    --dark-bg: #121212; /* fundo principal escuro */
+    --medium-dark-bg: #1E1E1E; /* fundo um pouco mais claro */
+    --light-text: #FFFFFF; /* texto claro */
+    --dark-text: #1A292F; /* texto escuro */
+    --dark-text-secondary: #495057; /* texto mais apagado */
+    --medium-gray-text: #ccd6f6; /* cinza claro usado bastante */
+    --gold-accent: #CCA43B; /* cor dourada de destaque */
+    --white-bg: #FFFFFF; /* fundo branco */
+    --navy-accent: #0a192f; /* azul-escuro */
+    --font-headings: 'Playfair Display', serif; /* fonte dos títulos */
+    --font-body: 'Roboto', sans-serif; /* fonte do corpo */
+}
+
+/* Estilos Base e Tipografia*/
+body {
+    font-family: var(--font-body); /* usando a fonte padrão */
+    line-height: 1.7; /* deixando linhas mais espaçadas */
+    scroll-behavior: smooth; /* rolagem suave */
+    background-color: var(--dark-bg); /* fundo escuro */
+    color: var(--medium-gray-text); /* texto claro */
+}
+
+h1, h2, h3, h4, h5, h6 {
+    /* todos os títulos seguem a mesma fonte e estilo */
+    font-family: var(--font-headings);
+    font-weight: 700;
+    letter-spacing: 0.5px;
+}
+
+h1, h2 {
+    color: var(--gold-accent); /* títulos principais dourados */
+}
+
+h3, h4, h5, h6 {
+    color: var(--light-text); /* títulos secundários brancos */
+}
+
+/* Estilos de Seção */
+.section-dark {
+    background-color: var(--dark-bg); /* seção escura */
+}
+
+.section-light {
+    background-color: var(--white-bg); /* seção clara */
+    color: var(--dark-text-secondary);
+}
+
+.section-light h1,
+.section-light h2,
+.section-light h3 {
+    /* títulos na versão clara ficam escuros */
+    color: var(--dark-text);
+}
+
+.section-light .section-title {
+    color: var(--gold-accent); /* destaque dourado */
+}
+
+.section-title.text-start::after {
+    left: 0;
+    transform: translateX(0); /* ajustando linha decorativa */
+}
+
+/* Barra de Navegação */
+.navbar {
+    background-color: var(--dark-bg) !important; /* navbar escura */
+    border-bottom: 2px solid var(--gold-accent) !important; /* linha dourada */
+}
+
+.navbar-brand .fw-semibold {
+    font-family: var(--font-headings);
+    font-size: 1.3rem;
+    color: var(--light-text) !important; /* deixando a marca branca */
+}
+
+.navbar-toggler-icon {
+    /* alterei o ícone do menu hamburguer para ficar dourado */
+    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='rgba%28204, 164, 59, 0.8%29' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
+}
+
+.navbar-dark .nav-link {
+    /* links do menu */
+    font-weight: 500;
+    font-size: 0.9rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: var(--medium-gray-text);
+    transition: color 0.3s ease;
+}
+
+.navbar-dark .nav-link:hover {
+    color: var(--gold-accent) !important; /* hover dourado */
+}
+
+.btn-outline-gold {
+    border-color: var(--gold-accent);
+    color: var(--gold-accent);
+}
+
+.btn-outline-gold:hover {
+    background-color: var(--gold-accent);
+    color: var(--dark-bg);
+}
+
+/* 5. Seção Hero (Banner Principal) */
+.hero-section {
+    position: relative;
+    height: 70vh; /* altura do banner */
+    min-height: 500px;
+    background: url('../imagens/FundoInicial.png') no-repeat center center;
+    background-size: cover; /* imagem cobre tudo */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.hero-overlay {
+    /* camada escura sobre a imagem para melhorar contraste */
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.6);
+}
+
+.hero-content {
+    position: relative;
+    z-index: 1; /* fica acima do overlay */
+}
+
+.hero-content h1 {
+    color: var(--light-text);
+}
+
+.hero-content .lead {
+    color: var(--medium-gray-text);
+}
+
+/* 6. Filtros do Catálogo */
+.filter-nav .nav-link {
+    /* botões dos filtros */
+    color: var(--medium-gray-text);
+    border: 1px solid var(--gold-accent);
+    margin: 0 5px;
+    border-radius: 30px;
+    transition: all 0.3s ease;
+}
+
+.filter-nav .nav-link:hover {
+    background-color: var(--gold-accent);
+    color: var(--dark-bg);
+}
+
+.filter-nav .nav-link.active {
+    background-color: var(--gold-accent);
+    color: var(--dark-bg);
+    font-weight: bold;
+}
+
+/* 7. Cards de Barcos - Tema Claro e Escuro */
+.boat-card {
+    border: 1px solid #e9ecef;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    border-radius: 0.5rem;
+    overflow: hidden;
+    background-color: var(--white-bg);
+}
+
+.boat-card:hover {
+    transform: translateY(-10px); /* efeito de levantar */
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+}
+
+.boat-card .card-img-top {
+    height: 200px;
+    object-fit: cover; /* garante que a imagem sempre preencha bem */
+}
+
+.boat-card .card-title {
+    color: var(--dark-text);
+}
+
+.boat-card .card-text {
+    color: var(--dark-text-secondary);
+}
+
+.boat-card .btn-outline-dark {
+    border-color: var(--dark-text);
+    color: var(--dark-text);
+}
+
+.boat-card .btn-outline-dark:hover {
+    background-color: var(--dark-text);
+    color: var(--white-bg);
+}
+
+/* versão Dark do card */
+.boat-card-dark {
+    border: 1px solid #333;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    border-radius: 0.5rem;
+    overflow: hidden;
+    background-color: var(--medium-dark-bg);
+}
+
+.boat-card-dark:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.25);
+}
+
+.boat-card-dark .card-img-top {
+    height: 200px;
+    object-fit: cover;
+}
+
+.boat-card-dark .card-title {
+    color: var(--light-text);
+}
+
+.boat-card-dark .card-text {
+    color: var(--medium-gray-text);
+}
+
+.boat-card-dark .card-price {
+    font-size: 1.2rem;
+    color: var(--gold-accent);
+    font-weight: bold;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+}
+
+/* 8. Página de Detalhes do Barco */
+.boat-page-main {
+    background-color: var(--dark-bg);
+}
+
+.price-highlight {
+    /* caixa que mostra o preço com destaque */
+    background: linear-gradient(145deg, var(--medium-dark-bg), var(--dark-bg));
+    color: var(--light-text);
+    padding: 2rem;
+    margin: 2.5rem 0;
+    border-radius: 10px;
+    text-align: center;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+    border-top: 4px solid var(--gold-accent);
+}
+
+.price-highlight .price-label {
+    font-size: 1.2rem;
+    color: var(--medium-gray-text);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.price-highlight .price-value {
+    font-family: var(--font-headings);
+    font-size: 3.5rem;
+    color: var(--gold-accent);
+}
+
+.carousel {
+    border: none !important;
+    border-radius: 10px !important;
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.25);
+}
+
+.carousel-image-balanced {
+    width: 100%;
+    height: 500px;
+    object-fit: cover;
+    object-position: center;
+}
+
+.specs-table .table {
+    background-color: var(--white-bg);
+    color: var(--dark-text);
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+}
+
+.specs-table .table thead {
+    background-color: var(--navy-accent);
+    color: var(--light-text);
+}
+
+.specs-table .table th,
+.specs-table .table td {
+    padding: 1rem;
+    vertical-align: middle;
+    border-color: #dee2e6;
+}
+
+.specs-table .table-striped>tbody>tr:nth-of-type(odd)>* {
+    --bs-table-accent-bg: var(--bs-table-striped-bg);
+    color: var(--dark-text);
+}
+
+/* Ajustes responsivos do carrossel */
+@media (max-width: 992px) {
+    .carousel-image-balanced {
+        height: 400px;
+    }
+}
+
+@media (max-width: 768px) {
+    .carousel-image-balanced {
+        height: 300px;
+    }
+}
+
+/* 9. Rodapé */
+.footer-custom {
+    background: var(--dark-bg);
+    color: var(--light-text);
+    text-align: center;
+    padding: 4rem 1rem;
+    border-top: 1px solid #333;
+}
+
+.footer-custom p {
+    color: var(--medium-gray-text);
+}
+
+.footer-custom .social-icons a {
+    color: var(--gold-accent);
+    margin: 0 15px;
+    font-size: 2.2rem;
+    transition: all 0.3s ease;
+}
+
+.footer-custom .social-icons a:hover {
+    color: #d4b783;
+    transform: translateY(-5px) scale(1.05);
+}
+
+.footer-custom .copyright {
+    color: #6c757d;
+}
+
+/* 10. Modal de Login */
+.modal-content {
+    background-color: var(--medium-dark-bg);
+    color: var(--light-text);
+}
+
+.modal-header-custom {
+    background-color: var(--dark-bg);
+    color: var(--light-text);
+    border-bottom: 2px solid var(--gold-accent);
+}
+
+.modal-header-custom .btn-close {
+    filter: invert(1) grayscale(100%) brightness(200%); /* close button mais visível */
+}
+
+.btn-gold {
+    background-color: var(--gold-accent);
+    color: var(--dark-bg);
+    border: none;
+    font-weight: bold;
+    transition: background-color 0.3s ease;
+}
+
+.btn-gold:hover {
+    background-color: #d4b783;
+    color: var(--dark-bg);
+}
+
+.nav-pills .nav-link {
+    color: var(--medium-gray-text);
+}
+
+.nav-pills .nav-link.active {
+    background-color: var(--gold-accent);
+    color: var(--dark-bg);
+}
+
+.form-control {
+    background-color: var(--dark-bg);
+    color: var(--light-text);
+    border: 1px solid #444;
+}
+
+.form-control:focus {
+    background-color: var(--dark-bg);
+    color: var(--light-text);
+    border-color: var(--gold-accent);
+    box-shadow: 0 0 0 0.25rem rgba(204, 164, 59, 0.25);
+}
+
+/* 11. Componentes Diversos */
+#map {
+    background-color: #ddd; /* placeholder para o mapa */
+    border-radius: 8px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
